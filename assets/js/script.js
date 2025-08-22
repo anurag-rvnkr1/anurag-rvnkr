@@ -326,3 +326,36 @@ window.addEventListener('load', function () {
             });
         }
 
+ 
+  // Mapping of portfolio classes -> card IDs
+  const projectMap = {
+    "cyber": "project1-card",    // SafeGuard
+    "vault": "project2-card",    // Secure Vault
+    "linksnip": "project3-card", // LinkSnip
+    "hospital": "project4-card"  // Smart Hospital Management System
+  };
+
+  // Attach click events dynamically
+  Object.keys(projectMap).forEach(cls => {
+    const item = document.querySelector(`.portfolio-item.${cls}`);
+    const cardId = projectMap[cls];
+    const card = document.getElementById(cardId);
+
+    if (item && card) {
+      // Open on portfolio click
+      item.addEventListener("click", e => {
+        e.preventDefault();
+        card.classList.add("show");
+      });
+
+      // Close on close-btn
+      card.querySelector(".close-btn").addEventListener("click", () => {
+        card.classList.remove("show");
+      });
+
+      // Close on background click
+      card.addEventListener("click", e => {
+        if (e.target === card) card.classList.remove("show");
+      });
+    }
+  });
