@@ -1,22 +1,9 @@
-// Initialize AOS
+// Initialize AOS (Animate On Scroll)
 AOS.init({
     duration: 1000,
     once: true,
     offset: 100
 });
-
-function downloadResume() {
-    const link = document.createElement('a');
-    link.href = 'https://raw.githubusercontent.com/shivani-s0987/shivani-s0987/main/assets/resume/resume.pdf';
-    link.download = 'resume.pdf';
-
-    // For demo purposes, show an alert
-    //alert('Resume download feature: Please add your actual resume PDF to enable downloads. For now, please contact me directly at shivani2kk4@gmail.com');
-  
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-}
 
 // Typewriter Effect
 const texts = [
@@ -79,12 +66,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// AOS Animation Init
-AOS.init({
-  duration: 1000,
-  once: true,
-  offset: 100
-});
+// (AOS already initialized above)
 
 // Project Filtering Logic
 document.querySelectorAll('.filter-btn').forEach(button => {
@@ -107,8 +89,14 @@ document.querySelectorAll('.filter-btn').forEach(button => {
 
 
 // Navbar scroll effect
-window.addEventListener('scroll', function () {
+// Consolidated scroll handling for performance: navbar style, active nav highlighting, and back-to-top toggle
+const sections = document.querySelectorAll('section');
+const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+const backToTopBtn = document.getElementById('backToTop');
+
+function updateNavbar() {
     const navbar = document.querySelector('.navbar');
+    if (!navbar) return;
     if (window.scrollY > 50) {
         navbar.style.background = 'rgba(26, 26, 26, 0.98)';
         navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.3)';
@@ -116,47 +104,44 @@ window.addEventListener('scroll', function () {
         navbar.style.background = 'rgba(26, 26, 26, 0.95)';
         navbar.style.boxShadow = 'none';
     }
-});
+}
 
-// Active navigation link highlighting
-const sections = document.querySelectorAll('section');
-const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
-
-window.addEventListener('scroll', function () {
+function highlightActiveNav() {
     let current = '';
     sections.forEach(section => {
         const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (scrollY >= sectionTop - 200) {
+        if (window.scrollY >= sectionTop - 200) {
             current = section.getAttribute('id');
         }
     });
 
     navLinks.forEach(link => {
         link.classList.remove('active');
-        if (link.getAttribute('href').includes(current)) {
+        const href = link.getAttribute('href') || '';
+        if (current && href.includes(current)) {
             link.classList.add('active');
         }
     });
-});
+}
 
-// Back to top button
-const backToTopBtn = document.getElementById('backToTop');
+function toggleBackToTop() {
+    if (!backToTopBtn) return;
+    backToTopBtn.style.display = (window.scrollY > 300) ? 'flex' : 'none';
+}
 
-window.addEventListener('scroll', function () {
-    if (window.scrollY > 300) {
-        backToTopBtn.style.display = 'flex';
-    } else {
-        backToTopBtn.style.display = 'none';
-    }
-});
+function handleScroll() {
+    updateNavbar();
+    highlightActiveNav();
+    toggleBackToTop();
+}
 
-backToTopBtn.addEventListener('click', function () {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
+window.addEventListener('scroll', handleScroll);
+
+if (backToTopBtn) {
+    backToTopBtn.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     });
-});
+}
 
 // Contact form submission
 document.getElementById('contactForm').addEventListener('submit', function (e) {
@@ -247,115 +232,118 @@ window.addEventListener('load', function () {
     }, 100);
 });
 
-        // Matrix Rain Effect
-        const canvas = document.querySelector('.matrix-bg');
-        const ctx = canvas.getContext('2d');
+// Matrix Rain Effect
+const canvas = document.querySelector('.matrix-bg');
+const ctx = canvas.getContext('2d');
 
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 
-        const matrix = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%+-/~{[|`]}";
-        const matrixArray = matrix.split("");
+const matrix = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%+-/~{[|`]}";
+const matrixArray = matrix.split("");
 
-        const fontSize = 10;
-        const columns = canvas.width / fontSize;
-        const drops = [];
+const fontSize = 10;
+const columns = canvas.width / fontSize;
+const drops = [];
 
-        for (let x = 0; x < columns; x++) {
-            drops[x] = 1;
-        }
+for (let x = 0; x < columns; x++) {
+    drops[x] = 1;
+}
 
-        function drawMatrix() {
-            ctx.fillStyle = 'rgba(0, 0, 0, 0.04)';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
+function drawMatrix() {
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.04)';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-            ctx.fillStyle = '#00ff41';
-            ctx.font = fontSize + 'px monospace';
+    ctx.fillStyle = '#00ff41';
+    ctx.font = fontSize + 'px monospace';
 
-            for (let i = 0; i < drops.length; i++) {
-                const text = matrixArray[Math.floor(Math.random() * matrixArray.length)];
-                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+        for (let i = 0; i < drops.length; i++) {
+            const text = matrixArray[Math.floor(Math.random() * matrixArray.length)];
+            ctx.fillText(text, i * fontSize, drops[i] * fontSize);
 
-                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-                    drops[i] = 0;
-                }
-                drops[i]++;
+            if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                drops[i] = 0;
             }
+            drops[i]++;
         }
 
-        setInterval(drawMatrix, 35);
-
-        // Particles Animation
-        class Particle {
-            constructor() {
-                this.x = Math.random() * window.innerWidth;
-                this.y = Math.random() * window.innerHeight;
-                this.size = Math.random() * 2 + 1;
-                this.speedX = Math.random() * 3 - 1.5;
-                this.speedY = Math.random() * 3 - 1.5;
-                this.color = Math.random() > 0.5 ? '#00ff41' : '#ff0040';
-            }
-
-            update() {
-                this.x += this.speedX;
-                this.y += this.speedY;
-
-                if (this.x > window.innerWidth) this.x = 0;
-                if (this.x < 0) this.x = window.innerWidth;
-                if (this.y > window.innerHeight) this.y = 0;
-                if (this.y < 0) this.y = window.innerHeight;
-            }
-
-            draw() {
-                ctx.fillStyle = this.color;
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fill();
-            }
-        }
-
-        const particles = [];
-        for (let i = 0; i < 50; i++) {
-            particles.push(new Particle());
-        }
-
-        function animateParticles() {
-            particles.forEach(particle => {
-                particle.update();
-                particle.draw();
-            });
-        }
-
- 
-  // Mapping of portfolio classes -> card IDs
-  const projectMap = {
-    "cyber": "project1-card",    // SafeGuard
-    "vault": "project2-card",    // Secure Vault
-    "linksnip": "project3-card", // LinkSnip
-    "hospital": "project4-card"  // Smart Hospital Management System
-  };
-
-  // Attach click events dynamically
-  Object.keys(projectMap).forEach(cls => {
-    const item = document.querySelector(`.portfolio-item.${cls}`);
-    const cardId = projectMap[cls];
-    const card = document.getElementById(cardId);
-
-    if (item && card) {
-      // Open on portfolio click
-      item.addEventListener("click", e => {
-        e.preventDefault();
-        card.classList.add("show");
-      });
-
-      // Close on close-btn
-      card.querySelector(".close-btn").addEventListener("click", () => {
-        card.classList.remove("show");
-      });
-
-      // Close on background click
-      card.addEventListener("click", e => {
-        if (e.target === card) card.classList.remove("show");
-      });
+        // Also animate particles each frame so both effects run together on the same canvas/context
+        if (typeof animateParticles === 'function') animateParticles();
     }
-  });
+
+    setInterval(drawMatrix, 35);
+
+// Particles Animation
+class Particle {
+    constructor() {
+        this.x = Math.random() * window.innerWidth;
+        this.y = Math.random() * window.innerHeight;
+        this.size = Math.random() * 2 + 1;
+        this.speedX = Math.random() * 3 - 1.5;
+        this.speedY = Math.random() * 3 - 1.5;
+        this.color = Math.random() > 0.5 ? '#00ff41' : '#ff0040';
+    }
+
+    update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+
+        if (this.x > window.innerWidth) this.x = 0;
+        if (this.x < 0) this.x = window.innerWidth;
+        if (this.y > window.innerHeight) this.y = 0;
+        if (this.y < 0) this.y = window.innerHeight;
+    }
+
+    draw() {
+        ctx.fillStyle = this.color;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+    }
+}
+
+const particles = [];
+for (let i = 0; i < 50; i++) {
+    particles.push(new Particle());
+}
+
+function animateParticles() {
+    particles.forEach(particle => {
+        particle.update();
+        particle.draw();
+    });
+}
+
+
+// Mapping of portfolio classes -> card IDs
+const projectMap = {
+"cyber": "project1-card",    // SafeGuard
+"vault": "project2-card",    // Secure Vault
+"linksnip": "project3-card", // LinkSnip
+"hospital": "project4-card"  // Smart Hospital Management System
+};
+
+// Attach click events dynamically
+Object.keys(projectMap).forEach(cls => {
+const item = document.querySelector(`.portfolio-item.${cls}`);
+const cardId = projectMap[cls];
+const card = document.getElementById(cardId);
+
+if (item && card) {
+    // Open on portfolio click
+    item.addEventListener("click", e => {
+    e.preventDefault();
+    card.classList.add("show");
+    });
+
+    // Close on close-btn
+    card.querySelector(".close-btn").addEventListener("click", () => {
+    card.classList.remove("show");
+    });
+
+    // Close on background click
+    card.addEventListener("click", e => {
+    if (e.target === card) card.classList.remove("show");
+    });
+}
+});
