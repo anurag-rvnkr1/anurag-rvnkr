@@ -539,6 +539,596 @@ font-size: 11px;
 }
 }
 
+/* =========================================================
+   CTF WRITEUPS SECTION
+========================================================= */
+
+.ctf-section-description {
+  max-width: 850px;
+  margin: -15px auto 35px;
+  text-align: center;
+  color: #aaa;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   CTF FILTERS
+========================================================= */
+
+.ctf-filters {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 35px;
+}
+
+.ctf-filter-btn {
+  cursor: pointer;
+  padding: 8px 17px;
+  background: #181818;
+  color: #ccc;
+  border: 1px solid rgba(0, 255, 65, 0.25);
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+.ctf-filter-btn:hover,
+.ctf-filter-btn.active {
+  background: #00ff41;
+  color: #000;
+  border-color: #00ff41;
+  box-shadow: 0 0 15px rgba(0, 255, 65, 0.45);
+}
+
+
+/* =========================================================
+   CTF GRID
+========================================================= */
+
+.ctf-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 15px;
+  width: 100%;
+}
+
+
+/* =========================================================
+   CTF CARD
+========================================================= */
+
+.ctf-item {
+  position: relative;
+  min-height: 115px;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(20, 20, 20, 0.96),
+      rgba(8, 8, 8, 0.96)
+    );
+
+  border: 1px solid rgba(0, 255, 65, 0.28);
+  border-radius: 10px;
+
+  overflow: hidden;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease;
+}
+
+
+/* subtle cyber grid */
+.ctf-item::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    linear-gradient(
+      rgba(0, 255, 65, 0.025) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(0, 255, 65, 0.025) 1px,
+      transparent 1px
+    );
+
+  background-size: 20px 20px;
+
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   CTF CARD CONTENT
+========================================================= */
+
+.ctf-card-content {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  height: 100%;
+
+  min-height: 115px;
+
+  padding: 15px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+}
+
+
+/* CTF title */
+
+.ctf-card-content h4 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  line-height: 1.4;
+
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+
+/* =========================================================
+   READ WRITEUP
+========================================================= */
+
+.ctf-read {
+  margin-top: 9px;
+
+  color: #00ff41;
+
+  font-size: 11px;
+  font-weight: 600;
+
+  letter-spacing: 0.3px;
+
+  opacity: 0;
+
+  transform: translateY(8px);
+
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+
+/* =========================================================
+   HOVER EFFECT
+========================================================= */
+
+.ctf-item:hover {
+  transform: translateY(-5px);
+
+  border-color: #00ff41;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(0, 45, 18, 0.95),
+      rgba(8, 8, 8, 0.98)
+    );
+
+  box-shadow:
+    0 0 10px rgba(0, 255, 65, 0.25),
+    0 0 25px rgba(0, 255, 65, 0.18);
+}
+
+
+.ctf-item:hover .ctf-card-content h4 {
+  color: #00ff41;
+  transform: translateY(-3px);
+}
+
+
+.ctf-item:hover .ctf-read {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* =========================================================
+   HIDDEN FILTERED ITEMS
+========================================================= */
+
+.ctf-item.ctf-hidden {
+  display: none;
+}
+
+
+/* =========================================================
+   CTF MODAL
+   Reuses the visual language of the existing project card.
+========================================================= */
+
+.ctf-floating-card {
+  position: fixed;
+
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.88);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  visibility: hidden;
+  opacity: 0;
+
+  transition:
+    opacity 0.4s ease,
+    visibility 0.4s ease;
+
+  z-index: 9999;
+
+  padding: 20px;
+}
+
+
+.ctf-floating-card.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+
+/* =========================================================
+   CTF MODAL CONTENT
+========================================================= */
+
+.ctf-card-modal-content {
+  position: relative;
+
+  background:
+    linear-gradient(
+      135deg,
+      #111,
+      #080808
+    );
+
+  border: 2px solid #00ff41;
+
+  padding: 30px;
+
+  border-radius: 16px;
+
+  width: 90%;
+  max-width: 560px;
+
+  color: #fff;
+
+  box-shadow:
+    0 0 20px rgba(0, 255, 65, 0.45),
+    0 0 45px rgba(0, 255, 65, 0.18);
+
+  transform: translateY(-30px) scale(0.97);
+
+  transition:
+    transform 0.4s ease;
+}
+
+
+.ctf-floating-card.show .ctf-card-modal-content {
+  transform: translateY(0) scale(1);
+}
+
+
+/* =========================================================
+   MODAL CLOSE BUTTON
+========================================================= */
+
+.ctf-close-btn {
+  position: absolute;
+
+  top: 12px;
+  right: 20px;
+
+  font-size: 28px;
+
+  color: #ff0040;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    color 0.2s ease;
+}
+
+.ctf-close-btn:hover {
+  transform: scale(1.2);
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   MODAL TITLE
+========================================================= */
+
+.ctf-card-modal-content h2 {
+  margin-bottom: 15px;
+
+  color: #00ff41;
+
+  font-size: 25px;
+
+  line-height: 1.3;
+}
+
+
+/* =========================================================
+   MODAL DESCRIPTION
+========================================================= */
+
+.ctf-card-modal-content > p {
+  color: #ccc;
+
+  font-size: 14px;
+
+  line-height: 1.7;
+
+  margin-bottom: 18px;
+}
+
+
+/* =========================================================
+   TECHNIQUES
+========================================================= */
+
+.ctf-techniques {
+  list-style: none;
+
+  padding: 0;
+
+  margin: 0 0 20px;
+}
+
+
+.ctf-techniques li {
+  position: relative;
+
+  padding: 6px 0 6px 20px;
+
+  color: #ddd;
+
+  font-size: 13px;
+}
+
+
+.ctf-techniques li::before {
+  content: '▶';
+
+  position: absolute;
+
+  left: 0;
+
+  color: #00ff41;
+
+  font-size: 10px;
+}
+
+
+/* =========================================================
+   CTF METADATA
+========================================================= */
+
+.ctf-meta {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 10px;
+
+  margin: 20px 0;
+}
+
+
+.ctf-meta-box {
+  background: rgba(255, 255, 255, 0.04);
+
+  border: 1px solid rgba(0, 255, 65, 0.2);
+
+  border-radius: 8px;
+
+  padding: 10px;
+
+  text-align: center;
+}
+
+
+.ctf-meta-box strong {
+  display: block;
+
+  color: #00ff41;
+
+  font-size: 10px;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.5px;
+
+  margin-bottom: 4px;
+}
+
+
+.ctf-meta-box span {
+  color: #ddd;
+
+  font-size: 12px;
+}
+
+
+/* =========================================================
+   CTF MODAL BUTTONS
+========================================================= */
+
+.ctf-btn-group {
+  display: flex;
+
+  gap: 10px;
+
+  margin-top: 20px;
+}
+
+
+.ctf-btn-group .ctf-btn {
+  flex: 1;
+
+  background: #ff0040;
+
+  color: #ffffff;
+
+  padding: 10px 14px;
+
+  text-decoration: none;
+
+  text-align: center;
+
+  border-radius: 8px;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+
+.ctf-btn-group .ctf-btn:hover {
+  background: #00ff41;
+
+  color: #000;
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   RESPONSIVE CTF GRID
+========================================================= */
+
+/* Laptop */
+@media (max-width: 1200px) {
+
+  .ctf-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+}
+
+
+/* Tablet */
+@media (max-width: 992px) {
+
+  .ctf-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+}
+
+
+/* Small tablet */
+@media (max-width: 768px) {
+
+  .ctf-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .ctf-item {
+    min-height: 105px;
+  }
+
+  .ctf-card-content {
+    min-height: 105px;
+    padding: 12px;
+  }
+
+  .ctf-card-content h4 {
+    font-size: 13px;
+  }
+
+  .ctf-read {
+    font-size: 10px;
+  }
+
+  .ctf-meta {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+/* Mobile */
+@media (max-width: 480px) {
+
+  .ctf-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ctf-item {
+    min-height: 90px;
+  }
+
+  .ctf-card-content {
+    min-height: 90px;
+  }
+
+  .ctf-filters {
+    gap: 8px;
+  }
+
+  .ctf-filter-btn {
+    padding: 7px 12px;
+    font-size: 11px;
+  }
+
+  .ctf-card-modal-content {
+    padding: 25px 20px;
+  }
+
+  .ctf-card-modal-content h2 {
+    font-size: 21px;
+  }
+
+  .ctf-btn-group {
+    flex-direction: column;
+  }
+
+}
+
 /* Certificates Section */
 .cert-card {
 position: relative;
