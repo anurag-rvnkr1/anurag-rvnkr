@@ -347,3 +347,185 @@ if (item && card) {
     });
 }
 });
+
+// ============================================================
+// CTF WRITEUPS - FILTERING & FLOATING MODALS
+// ============================================================
+
+const ctfMap = {
+    "smol": "ctf-smol-card",
+    "extracted": "ctf-extracted-card",
+    "mayhem": "ctf-mayhem-card",
+    "moebius": "ctf-moebius-card",
+    "valenfind": "ctf-valenfind-card",
+    "guestbook": "ctf-guestbook-card",
+    "plant-photographer": "ctf-plant-photographer-card",
+    "corp-website": "ctf-corp-website-card",
+    "containment": "ctf-containment-card",
+    "attacktive-directory": "ctf-attacktive-directory-card",
+    "signed-messages": "ctf-signed-messages-card",
+    "airplane": "ctf-airplane-card",
+    "operation-endgame": "ctf-operation-endgame-card",
+    "cryptocabana": "ctf-cryptocabana-card",
+    "after-hours": "ctf-after-hours-card",
+    "infinity-pool": "ctf-infinity-pool-card",
+    "fools-mate-revenge": "ctf-fools-mate-revenge-card",
+    "london-bridge": "ctf-london-bridge-card",
+    "hollow-shell": "ctf-hollow-shell-card",
+    "breachblocker": "ctf-breachblocker-card",
+    "supersecrettip": "ctf-supersecrettip-card",
+    "when-hearts-collide": "ctf-when-hearts-collide-card",
+    "do-not-disturb": "ctf-do-not-disturb-card",
+    "towel-on-the-sunbed": "ctf-towel-on-the-sunbed-card",
+    "management-wants-a-word": "ctf-management-wants-a-word-card"
+};
+
+
+// ------------------------------------------------------------
+// CTF FILTERING
+// ------------------------------------------------------------
+
+document.querySelectorAll('.ctf-filter-btn').forEach(button => {
+
+    button.addEventListener('click', () => {
+
+        const filter = button.getAttribute('data-filter');
+
+        // Remove active state from all CTF filters
+        document.querySelectorAll('.ctf-filter-btn').forEach(btn => {
+            btn.classList.remove('active');
+        });
+
+        // Activate selected filter
+        button.classList.add('active');
+
+        // Filter CTF cards only
+        document.querySelectorAll('.ctf-grid .ctf-item').forEach(item => {
+
+            if (
+                filter === 'all' ||
+                item.classList.contains(`ctf-${filter}`)
+            ) {
+                item.style.display = 'flex';
+                item.classList.add('aos-animate');
+            } else {
+                item.style.display = 'none';
+                item.classList.remove('aos-animate');
+            }
+
+        });
+
+    });
+
+});
+
+
+// ------------------------------------------------------------
+// CTF CARD -> FLOATING MODAL
+// ------------------------------------------------------------
+
+document.querySelectorAll('.ctf-item').forEach(item => {
+
+    item.addEventListener('click', function (e) {
+
+        e.preventDefault();
+
+        const ctfName = this.getAttribute('data-ctf');
+        const cardId = ctfMap[ctfName];
+
+        if (!cardId) {
+            console.warn(`No CTF modal mapped for: ${ctfName}`);
+            return;
+        }
+
+        const card = document.getElementById(cardId);
+
+        if (!card) {
+            console.warn(`CTF modal not found: ${cardId}`);
+            return;
+        }
+
+        card.classList.add('show');
+
+        // Prevent background page scrolling
+        document.body.classList.add('ctf-modal-open');
+
+    });
+
+});
+
+
+// ------------------------------------------------------------
+// CTF MODAL CLOSE BUTTONS
+// ------------------------------------------------------------
+
+document.querySelectorAll('.ctf-close-btn').forEach(button => {
+
+    button.addEventListener('click', function (e) {
+
+        e.stopPropagation();
+
+        const modal = this.closest('.ctf-floating-card');
+
+        if (modal) {
+            modal.classList.remove('show');
+        }
+
+        document.body.classList.remove('ctf-modal-open');
+
+    });
+
+});
+
+
+// ------------------------------------------------------------
+// CLOSE CTF MODAL WHEN CLICKING OUTSIDE CONTENT
+// ------------------------------------------------------------
+
+document.querySelectorAll('.ctf-floating-card').forEach(modal => {
+
+    modal.addEventListener('click', function (e) {
+
+        if (e.target === modal) {
+
+            modal.classList.remove('show');
+
+            document.body.classList.remove('ctf-modal-open');
+
+        }
+
+    });
+
+});
+
+
+// ------------------------------------------------------------
+// CLOSE CTF MODAL WITH ESCAPE KEY
+// ------------------------------------------------------------
+
+document.addEventListener('keydown', function (e) {
+
+    if (e.key === 'Escape') {
+
+        document.querySelectorAll('.ctf-floating-card.show').forEach(modal => {
+            modal.classList.remove('show');
+        });
+
+        document.body.classList.remove('ctf-modal-open');
+
+    }
+
+});
+
+
+// ------------------------------------------------------------
+// PREVENT MODAL CONTENT CLICK FROM CLOSING MODAL
+// ------------------------------------------------------------
+
+document.querySelectorAll('.ctf-card-modal-content').forEach(content => {
+
+    content.addEventListener('click', function (e) {
+        e.stopPropagation();
+    });
+
+});
