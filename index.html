@@ -391,102 +391,12 @@
                 </div>
               </div>
             </div>
-          </div>
+        </div>
     <!-- End Project Grid -->
-  </div>
+    </div>
 </section>
 <!-- End Portfolio Section -->
 
-<!-- Portfolio Filters and Floating Modal Behavior -->
-<script>
-(function () {
-  const portfolio = document.getElementById('portfolio');
-  if (!portfolio || portfolio.dataset.behaviorInitialized === 'true') return;
-  portfolio.dataset.behaviorInitialized = 'true';
-
-  const filters = portfolio.querySelectorAll('.filter-btn');
-  const items = portfolio.querySelectorAll('.portfolio-item[data-project-card]');
-  let lastFocusedElement = null;
-
-  // Project category filters
-  filters.forEach((button) => {
-    button.addEventListener('click', () => {
-      const filter = button.getAttribute('data-filter') || 'all';
-
-      filters.forEach((candidate) => {
-        const active = candidate === button;
-        candidate.classList.toggle('active', active);
-        candidate.setAttribute('aria-pressed', String(active));
-      });
-
-      items.forEach((item) => {
-        const visible = filter === 'all' || item.classList.contains(filter);
-        item.style.display = visible ? '' : 'none';
-        item.setAttribute('aria-hidden', String(!visible));
-      });
-    });
-  });
-
-  // Open the exact modal linked to the clicked project.
-  function openModal(modal, trigger) {
-    if (!modal) return;
-
-    lastFocusedElement = trigger || document.activeElement;
-    modal.classList.add('show');
-    modal.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
-
-    const closeButton = modal.querySelector('.close-btn');
-    if (closeButton) closeButton.focus();
-  }
-
-  function closeModal(modal) {
-    if (!modal) return;
-
-    modal.classList.remove('show');
-    modal.setAttribute('aria-hidden', 'true');
-
-    if (!portfolio.querySelector('.floating-card.show')) {
-      document.body.style.overflow = '';
-    }
-
-    if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
-      lastFocusedElement.focus();
-    }
-  }
-
-  items.forEach((item) => {
-    const link = item.querySelector('a');
-    const modalId = item.getAttribute('data-project-card');
-    const modal = document.getElementById(modalId);
-
-    if (!link || !modal) return;
-
-    link.addEventListener('click', (event) => {
-      event.preventDefault();
-      openModal(modal, link);
-    });
-
-    const closeButton = modal.querySelector('.close-btn');
-    if (closeButton) {
-      closeButton.addEventListener('click', () => closeModal(modal));
-    }
-
-    // Close when the user clicks the modal backdrop.
-    modal.addEventListener('click', (event) => {
-      if (event.target === modal) closeModal(modal);
-    });
-  });
-
-  // Close the currently open modal with Escape.
-  document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') {
-      const openModalElement = portfolio.querySelector('.floating-card.show');
-      if (openModalElement) closeModal(openModalElement);
-    }
-  });
-})();
-</script>
 
 
       <!-- =========================
