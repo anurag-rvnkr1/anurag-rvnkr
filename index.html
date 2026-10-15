@@ -222,6 +222,7 @@
         </div>
       </section>
 
+
 <!-- Portfolio Section -->
 <section id="portfolio" class="section">
   <div class="container">
@@ -229,194 +230,189 @@
 
     <!-- Filter Buttons -->
     <ul class="portfolio-filters" data-aos="fade-up" data-aos-delay="100">
-      <li class="filter-btn active" data-filter="all">All</li>
-      <li class="filter-btn" data-filter="cyber">Cybersecurity</li>
-      <li class="filter-btn" data-filter="django">PYTHON-DJANGO</li>
-      <li class="filter-btn" data-filter="soc">SOC & SIEM</li>
+      <li class="filter-btn active" data-filter="all" aria-pressed="true">All</li>
+      <li class="filter-btn" data-filter="cyber" aria-pressed="false">Cybersecurity</li>
+      <li class="filter-btn" data-filter="django" aria-pressed="false">PYTHON-DJANGO</li>
+      <li class="filter-btn" data-filter="soc" aria-pressed="false">SOC &amp; SIEM</li>
     </ul>
 
     <!-- Project Grid -->
     <div class="portfolio-grid" data-aos="fade-up" data-aos-delay="200">
 
       <!-- Project 1: SafeGuard -->
-      <div class="portfolio-item cyber">
-        <a href="assets/project_templates/project1.html">
-          <img src="assets/img/portfolio/safeguard.png" alt="SafeGuard Web Protector">
+      <div class="portfolio-item cyber" data-project-card="project1-card">
+        <a href="#project1-card" aria-haspopup="dialog" aria-controls="project1-card">
+          <img src="assets/img/portfolio/safeguard.png" alt="SafeGuard Web Protector" loading="lazy">
           <div class="portfolio-info">
             <h4>SafeGuard-Web-Protector</h4>
-            <p>Chrome extension using ML to classify URLs and block malicious content.</p>
+            <p>Chrome extension using machine learning to classify URLs and flag malicious content.</p>
             <span>📲 Tap to View Project</span>
           </div>
         </a>
       </div>
 
       <!-- Floating Card: SafeGuard -->
-      <div id="project1-card" class="floating-card">
+      <div id="project1-card" class="floating-card" role="dialog" aria-modal="true" aria-labelledby="project1-title" aria-hidden="true">
         <div class="card-content">
-          <span class="close-btn">×</span>
-          <h2>SafeGuard-Web-Protector</h2>
-          <p>🚀 Chrome extension using ML to classify URLs and block malicious content in real time.</p>
+          <button type="button" class="close-btn" aria-label="Close project details">×</button>
+          <h2 id="project1-title">SafeGuard-Web-Protector</h2>
+          <p>🚀 Chrome extension using machine learning to help identify potentially malicious URLs and improve browsing safety.</p>
           <ul>
-            <li>🔍 ML-based malicious URL classification using Naive Bayes</li>
-            <li>🛡️ VirusTotal and Google Safe Browsing API integration</li>
-            <li>👨‍👩‍👧 Child Mode for safer browsing</li>
-            <li>⚡ Popup alerts and classification scores</li>
+            <li>🔍 Machine-learning-based URL classification</li>
+            <li>🛡️ URL reputation service integrations, as configured</li>
+            <li>👨‍👩‍👧 Safer browsing options</li>
+            <li>⚡ Browser-based feedback for URL checks</li>
           </ul>
           <div class="btn-group">
             <a href="https://github.com/anuragrevankar/safeguard-web-protector" class="btn" target="_blank" rel="noopener noreferrer">GitHub Repo</a>
-            <a href="https://github.com/anuragrevankar/safeguard-web-protector" class="btn" target="_blank" rel="noopener noreferrer">Live Demo</a>
           </div>
         </div>
       </div>
 
       <!-- Project 2: SkillForge -->
-      <div class="portfolio-item django ai elearning">
-        <a href="assets/project_templates/project3.html">
-          <img src="assets/img/portfolio/SkillForge.jpg" alt="SkillForge E-Learning Platform">
+      <div class="portfolio-item django ai elearning" data-project-card="project3-card">
+        <a href="#project3-card" aria-haspopup="dialog" aria-controls="project3-card">
+          <img src="assets/img/portfolio/SkillForge.jpg" alt="SkillForge E-Learning Platform" loading="lazy">
           <div class="portfolio-info">
             <h4>SkillForge</h4>
-            <p>AI-powered Django e-learning platform backend with RESTful APIs and gamified learning.</p>
+            <p>Django-based e-learning backend with REST APIs and gamified learning workflows.</p>
             <span>📲 Tap to View Project</span>
           </div>
         </a>
       </div>
 
       <!-- Floating Card: SkillForge -->
-      <div id="project3-card" class="floating-card">
+      <div id="project3-card" class="floating-card" role="dialog" aria-modal="true" aria-labelledby="project3-title" aria-hidden="true">
         <div class="card-content">
-          <span class="close-btn">×</span>
-          <h2>SkillForge – E-Learning Platform</h2>
-          <p>🎓 Django-based backend powering an e-learning platform with AI-driven learning assistance.</p>
+          <button type="button" class="close-btn" aria-label="Close project details">×</button>
+          <h2 id="project3-title">SkillForge – E-Learning Platform</h2>
+          <p>🎓 A Django-based backend for course delivery and learning workflows.</p>
           <ul>
-            <li>⚙️ RESTful APIs for course management and learning workflows</li>
-            <li>🎮 Gamified learning with progress tracking, badges, and leaderboards</li>
-            <li>🔐 Role-based access for administrators, instructors, and students</li>
-            <li>⚡ Modular backend architecture and performance optimization</li>
+            <li>⚙️ RESTful APIs for course and learning management</li>
+            <li>🎮 Progress tracking and gamified learning features</li>
+            <li>🔐 Role-based access patterns for different user roles</li>
+            <li>🧩 Modular backend organization</li>
           </ul>
           <div class="btn-group">
-            <a href="https://github.com/anurag-rvnkr1/SkillForge-Demo.git" class="btn" target="_blank" rel="noopener noreferrer">GitHub Repo</a>
+            <a href="https://github.com/anurag-rvnkr1/SkillForge-Demo" class="btn" target="_blank" rel="noopener noreferrer">GitHub Repo</a>
             <a href="https://skill-forge-frontend-link.vercel.app" class="btn" target="_blank" rel="noopener noreferrer">Live Demo</a>
           </div>
         </div>
       </div>
 
       <!-- Project 3: Smart Hospital Management System -->
-      <div class="portfolio-item hospital django">
-        <a href="assets/project_templates/project4.html">
-          <img src="assets/img/portfolio/shms.png" alt="Smart Hospital Management System">
+      <div class="portfolio-item hospital django" data-project-card="project4-card">
+        <a href="#project4-card" aria-haspopup="dialog" aria-controls="project4-card">
+          <img src="assets/img/portfolio/shms.png" alt="Smart Hospital Management System" loading="lazy">
           <div class="portfolio-info">
             <h4>Smart Hospital Management System</h4>
-            <p>Django-based hospital system with role-based access and medicine management.</p>
+            <p>Django-based hospital management with role-based access and medicine workflows.</p>
             <span>📲 Tap to View Project</span>
           </div>
         </a>
       </div>
 
       <!-- Floating Card: Smart Hospital Management System -->
-      <div id="project4-card" class="floating-card">
+      <div id="project4-card" class="floating-card" role="dialog" aria-modal="true" aria-labelledby="project4-title" aria-hidden="true">
         <div class="card-content">
-          <span class="close-btn">×</span>
-          <h2>Smart Hospital Management System</h2>
-          <p>🏥 A Django-based hospital management application supporting multiple user roles.</p>
+          <button type="button" class="close-btn" aria-label="Close project details">×</button>
+          <h2 id="project4-title">Smart Hospital Management System</h2>
+          <p>🏥 A Django-based hospital management application organized around multiple user roles.</p>
           <ul>
-            <li>👨‍⚕️ Doctors can manage patient prescriptions</li>
-            <li>💊 Pharmacists can manage and dispense medicines</li>
-            <li>📝 Administrators can manage users, admissions, and inventory</li>
-            <li>💼 Receptionists can handle patient admissions</li>
-            <li>👩‍⚕️ Patients can view prescriptions and provide feedback</li>
+            <li>👨‍⚕️ Doctor workflows for patient prescriptions</li>
+            <li>💊 Medicine inventory and dispensing workflows</li>
+            <li>📝 Administrative user, admission, and inventory management</li>
+            <li>💼 Reception and patient-facing workflows</li>
           </ul>
           <div class="btn-group">
-            <a href="https://github.com/anuragrvnkr1/Smart-Hospital-Management-System-.git" class="btn" target="_blank" rel="noopener noreferrer">GitHub Repo</a>
+            <a href="https://github.com/anuragrvnkr1/Smart-Hospital-Management-System-" class="btn" target="_blank" rel="noopener noreferrer">GitHub Repo</a>
           </div>
         </div>
       </div>
 
       <!-- Project 4: Secure Vault -->
-      <div class="portfolio-item vault django cyber">
-        <a href="assets/project_templates/project2.html">
-          <img src="assets/img/portfolio/secure-vault.png" alt="Secure Vault">
+      <div class="portfolio-item vault django cyber" data-project-card="project2-card">
+        <a href="#project2-card" aria-haspopup="dialog" aria-controls="project2-card">
+          <img src="assets/img/portfolio/secure-vault.png" alt="Secure Vault" loading="lazy">
           <div class="portfolio-info">
             <h4>Secure-Vault</h4>
-            <p>Django application for secure password generation and AI-based strength checking.</p>
+            <p>Django password utility with password generation and strength feedback.</p>
             <span>📲 Tap to View Project</span>
           </div>
         </a>
       </div>
 
       <!-- Floating Card: Secure Vault -->
-      <div id="project2-card" class="floating-card">
+      <div id="project2-card" class="floating-card" role="dialog" aria-modal="true" aria-labelledby="project2-title" aria-hidden="true">
         <div class="card-content">
-          <span class="close-btn">×</span>
-          <h2>Secure-Vault</h2>
-          <p>🔐 Django web application for password generation and password-strength analysis.</p>
+          <button type="button" class="close-btn" aria-label="Close project details">×</button>
+          <h2 id="project2-title">Secure-Vault</h2>
+          <p>🔐 A Django web application focused on password creation and strength analysis.</p>
           <ul>
-            <li>⚡ Password-strength feedback</li>
-            <li>🧮 Entropy scoring and regex-based validation</li>
-            <li>📋 Clipboard-safe copy functionality</li>
-            <li>✨ Interactive password-strength meter</li>
+            <li>⚡ Password generation and strength feedback</li>
+            <li>🧮 Entropy-oriented and pattern-based checks</li>
+            <li>📋 Clipboard copy support</li>
+            <li>✨ Interactive strength presentation</li>
           </ul>
           <div class="btn-group">
             <a href="https://github.com/anuragrevankar/secure-vault" class="btn" target="_blank" rel="noopener noreferrer">GitHub Repo</a>
-            <a href="https://github.com/anuragrevankar/secure-vault" class="btn" target="_blank" rel="noopener noreferrer">Project Link</a>
           </div>
         </div>
       </div>
 
       <!-- Project 5: LinkSnip -->
-      <div class="portfolio-item linksnip django">
-        <a href="assets/project_templates/project5.html">
-          <img src="assets/img/portfolio/linksnip.png" alt="LinkSnip URL Shortener">
+      <div class="portfolio-item linksnip django" data-project-card="project5-card">
+        <a href="#project5-card" aria-haspopup="dialog" aria-controls="project5-card">
+          <img src="assets/img/portfolio/linksnip.png" alt="LinkSnip URL Shortener" loading="lazy">
           <div class="portfolio-info">
             <h4>LinkSnip</h4>
-            <p>Django-based URL shortener with analytics and secure redirection.</p>
+            <p>Django URL shortener with link management, analytics, and controlled redirects.</p>
             <span>📲 Tap to View Project</span>
           </div>
         </a>
       </div>
 
       <!-- Floating Card: LinkSnip -->
-      <div id="project5-card" class="floating-card">
+      <div id="project5-card" class="floating-card" role="dialog" aria-modal="true" aria-labelledby="project5-title" aria-hidden="true">
         <div class="card-content">
-          <span class="close-btn">×</span>
-          <h2>LinkSnip – URL Shortener</h2>
-          <p>🔗 Django-powered URL shortener with analytics, expiration, and redirection management.</p>
+          <button type="button" class="close-btn" aria-label="Close project details">×</button>
+          <h2 id="project5-title">LinkSnip – URL Shortener</h2>
+          <p>🔗 A Django-powered URL shortener for managing compact links and tracking link activity.</p>
           <ul>
-            <li>⚡ Base62 short URL generation</li>
-            <li>📊 Click analytics and timestamps</li>
-            <li>⏳ URL expiration and redirection handling</li>
-            <li>🛠️ Custom aliases and link management</li>
+            <li>⚡ Short-link creation and redirection</li>
+            <li>📊 Link activity analytics</li>
+            <li>⏳ Link lifecycle and expiration handling</li>
+            <li>🛠️ Link and alias management</li>
           </ul>
           <div class="btn-group">
             <a href="https://github.com/anuragrevankar/linksnip" class="btn" target="_blank" rel="noopener noreferrer">GitHub Repo</a>
-            <a href="https://github.com/anuragrevankar/linksnip" class="btn" target="_blank" rel="noopener noreferrer">Project Link</a>
           </div>
         </div>
       </div>
 
       <!-- Project 6: SSH Intrusion Detection System -->
-      <div class="portfolio-item cyber soc">
-        <a href="assets/project_templates/project6.html">
-          <img src="assets/img/portfolio/ssh-intrusion-detection.png" alt="SSH Intrusion Detection System">
+      <div class="portfolio-item cyber soc project-ssh-ids" data-project-card="project6-card">
+        <a href="#project6-card" aria-haspopup="dialog" aria-controls="project6-card">
+          <img src="assets/img/portfolio/ssh-intrusion-detection.png" alt="SSH Intrusion Detection System" loading="lazy">
           <div class="portfolio-info">
             <h4>SSH Intrusion Detection System</h4>
-            <p>Python-based real-time SSH brute-force detection with Splunk and ELK SIEM integration.</p>
+            <p>Python-based Linux authentication log monitoring for SSH brute-force activity and SIEM alerting.</p>
             <span>📲 Tap to View Project</span>
           </div>
         </a>
       </div>
 
       <!-- Floating Card: SSH Intrusion Detection System -->
-      <div id="project6-card" class="floating-card">
+      <div id="project6-card" class="floating-card" role="dialog" aria-modal="true" aria-labelledby="project6-title" aria-hidden="true">
         <div class="card-content">
-          <span class="close-btn">×</span>
-          <h2>SSH Intrusion Detection System</h2>
-          <p>🛡️ A Python-based intrusion detection system that monitors Linux authentication logs, detects SSH brute-force activity, and forwards structured alerts to SIEM platforms.</p>
+          <button type="button" class="close-btn" aria-label="Close project details">×</button>
+          <h2 id="project6-title">SSH Intrusion Detection System</h2>
+          <p>🛡️ Python-based monitoring for Linux authentication logs, designed to identify SSH brute-force patterns and route structured alerts to security monitoring tools.</p>
           <ul>
-            <li>🐧 Real-time monitoring of Linux authentication logs</li>
-            <li>🔍 Detection of failed SSH authentication attempts and suspicious login activity</li>
-            <li>🚨 Configurable detection thresholds and time windows</li>
-            <li>📊 Splunk HTTP Event Collector and ELK Logstash integration</li>
-            <li>🔄 Alert delivery retry handling and structured JSON events</li>
+            <li>🐧 Monitor Linux authentication events</li>
+            <li>🔍 Identify repeated failed SSH login attempts</li>
+            <li>🚨 Surface suspicious authentication patterns</li>
+            <li>📊 SIEM-oriented alerting for Splunk and Elastic Stack</li>
           </ul>
           <div class="btn-group">
             <a href="https://github.com/anurag-rvnkr1/SSH-Intrusion-Detection-System" class="btn" target="_blank" rel="noopener noreferrer">GitHub Repo</a>
@@ -425,29 +421,29 @@
       </div>
 
       <!-- Project 7: SSRFHunter Pro -->
-      <div class="portfolio-item cyber">
-        <a href="assets/project_templates/project7.html">
-          <img src="assets/img/portfolio/ssrfhunter-pro.png" alt="SSRFHunter Pro Security Assessment Framework">
+      <div class="portfolio-item cyber project-ssrfhunter" data-project-card="project7-card">
+        <a href="#project7-card" aria-haspopup="dialog" aria-controls="project7-card">
+          <img src="assets/img/portfolio/ssrfhunter-pro.png" alt="SSRFHunter Pro Security Assessment Framework" loading="lazy">
           <div class="portfolio-info">
             <h4>SSRFHunter Pro</h4>
-            <p>Asynchronous Python framework for authorized SSRF security assessment and reporting.</p>
+            <p>Python framework for authorized SSRF assessments, crawling, response analysis, and reporting.</p>
             <span>📲 Tap to View Project</span>
           </div>
         </a>
       </div>
 
       <!-- Floating Card: SSRFHunter Pro -->
-      <div id="project7-card" class="floating-card">
+      <div id="project7-card" class="floating-card" role="dialog" aria-modal="true" aria-labelledby="project7-title" aria-hidden="true">
         <div class="card-content">
-          <span class="close-btn">×</span>
-          <h2>SSRFHunter Pro</h2>
-          <p>🎯 A modular Python framework for authorized SSRF security assessments, application security reviews, and cybersecurity research.</p>
+          <button type="button" class="close-btn" aria-label="Close project details">×</button>
+          <h2 id="project7-title">SSRFHunter Pro</h2>
+          <p>🎯 A Python framework for SSRF security assessment in systems that you own or are explicitly authorized to test.</p>
           <ul>
             <li>⚡ Asynchronous scanning architecture</li>
             <li>🕸️ Website and API crawling</li>
             <li>🔍 URL parameter and HTML form discovery</li>
-            <li>📄 OpenAPI and Swagger support</li>
-            <li>🧠 Automated response analysis and risk classification</li>
+            <li>📄 OpenAPI / Swagger support</li>
+            <li>🧠 Response analysis and risk classification</li>
             <li>📊 HTML, JSON, and Markdown report generation</li>
             <li>🗄️ SQLite scan history and Docker support</li>
           </ul>
@@ -458,64 +454,62 @@
       </div>
 
       <!-- Project 8: NeuroSOC -->
-      <div class="portfolio-item cyber soc">
-        <a href="assets/project_templates/project8.html">
-          <img src="assets/img/portfolio/neurosoc.png" alt="NeuroSOC AI-Assisted SOC and SIEM Platform">
+      <div class="portfolio-item cyber soc project-neurosoc" data-project-card="project8-card">
+        <a href="#project8-card" aria-haspopup="dialog" aria-controls="project8-card">
+          <img src="assets/img/portfolio/neurosoc-ai-siem.png" alt="NeuroSOC AI-assisted SOC and SIEM platform" loading="lazy">
           <div class="portfolio-info">
             <h4>NeuroSOC – AI-Assisted SIEM</h4>
-            <p>AI-assisted SOC platform for security log analysis, event correlation, investigation, and visualization.</p>
+            <p>AI-assisted SOC platform for collecting, correlating, investigating, and visualizing security events.</p>
             <span>📲 Tap to View Project</span>
           </div>
         </a>
       </div>
 
       <!-- Floating Card: NeuroSOC -->
-      <div id="project8-card" class="floating-card">
+      <div id="project8-card" class="floating-card" role="dialog" aria-modal="true" aria-labelledby="project8-title" aria-hidden="true">
         <div class="card-content">
-          <span class="close-btn">×</span>
-          <h2>NeuroSOC – AI-Assisted SOC & SIEM</h2>
-          <p>🧠 A security operations platform that helps analysts collect, normalize, correlate, investigate, and visualize security events.</p>
+          <button type="button" class="close-btn" aria-label="Close project details">×</button>
+          <h2 id="project8-title">NeuroSOC – AI-Assisted SOC &amp; SIEM</h2>
+          <p>🧠 An AI-assisted security operations platform focused on searching, correlating, investigating, and visualizing security events.</p>
           <ul>
-            <li>🛡️ Multi-source security log ingestion</li>
-            <li>📊 SIEM dashboard with search and filtering</li>
-            <li>🚨 Detection rules and alert correlation</li>
-            <li>🤖 AI-assisted incident investigation</li>
-            <li>🎯 MITRE ATT&CK mapping</li>
-            <li>📁 Security case management and analytics</li>
-            <li>🔐 JWT authentication and role-based access control</li>
-            <li>⚙️ FastAPI backend, React frontend, and SQLite database</li>
+            <li>🛡️ Security event collection and normalization</li>
+            <li>📊 Event search, filtering, and visualization</li>
+            <li>🚨 Detection and alert correlation workflows</li>
+            <li>🤖 AI-assisted investigation workflows</li>
+            <li>🎯 Threat-analysis and case-management workflows</li>
           </ul>
+          <p><strong>Note:</strong> Replace the profile link with the correct NeuroSOC repository URL when confirmed.</p>
           <div class="btn-group">
-            <a href="https://github.com/anurag-rvnkr1/NeuroSOC-AI-Agentic-SIEM" class="btn" target="_blank" rel="noopener noreferrer">GitHub Repo</a>
+            <a href="https://github.com/anurag-rvnkr1" class="btn" target="_blank" rel="noopener noreferrer">GitHub Profile</a>
           </div>
         </div>
       </div>
 
       <!-- Project 9: Port Scan Detection Engineering Lab -->
-      <div class="portfolio-item cyber soc">
-        <a href="assets/project_templates/project9.html">
-          <img src="assets/img/portfolio/port-scan-detection-lab.png" alt="Port Scan Detection Engineering Lab">
+      <div class="portfolio-item cyber soc project-portscan" data-project-card="project9-card">
+        <a href="#project9-card" aria-haspopup="dialog" aria-controls="project9-card">
+          <img src="assets/img/portfolio/port-scan-detection-lab.png" alt="Port Scan Detection Engineering Lab" loading="lazy">
           <div class="portfolio-info">
             <h4>Port Scan Detection Engineering Lab</h4>
-            <p>Nmap reconnaissance simulations with detection rules and dashboards for Splunk and Elastic Stack.</p>
+            <p>Nmap reconnaissance simulations with detection queries and SIEM dashboards for Splunk and Elastic Stack.</p>
             <span>📲 Tap to View Project</span>
           </div>
         </a>
       </div>
 
       <!-- Floating Card: Port Scan Detection Engineering Lab -->
-      <div id="project9-card" class="floating-card">
+      <div id="project9-card" class="floating-card" role="dialog" aria-modal="true" aria-labelledby="project9-title" aria-hidden="true">
         <div class="card-content">
-          <span class="close-btn">×</span>
-          <h2>Port Scan Detection Engineering Lab</h2>
-          <p>🔎 A defensive security lab for simulating port-scan activity and validating reconnaissance detections in SIEM platforms.</p>
+          <button type="button" class="close-btn" aria-label="Close project details">×</button>
+          <h2 id="project9-title">Port Scan Detection Engineering Lab</h2>
+          <p>🔎 A defensive lab for generating reconnaissance telemetry and validating port-scan detections in SIEM platforms.</p>
           <ul>
-            <li>🧪 Nmap-based port-scan and reconnaissance simulations</li>
-            <li>📡 Sample network and security log generation</li>
+            <li>🧪 Nmap scan simulation in authorized lab environments</li>
+            <li>📡 Network and security log analysis</li>
             <li>🔍 Splunk SPL detection queries</li>
-            <li>📊 Elasticsearch DSL and ELK detection queries</li>
-            <li>📈 SIEM dashboards and investigation workflows</li>
-            <li>✅ Test cases and detection validation procedures</li>
+            <li>📊 Elasticsearch / ELK query examples</li>
+            <li>📈 SIEM dashboard and investigation guidance</li>
+            <li>✅ Documented test and validation procedures</li>
           </ul>
           <div class="btn-group">
             <a href="https://github.com/anurag-rvnkr1/Port-Scan-Detection-Engineering-Lab" class="btn" target="_blank" rel="noopener noreferrer">GitHub Repo</a>
@@ -528,6 +522,98 @@
   </div>
 </section>
 <!-- End Portfolio Section -->
+
+<!-- Portfolio Filters and Floating Modal Behavior -->
+<script>
+(function () {
+  const portfolio = document.getElementById('portfolio');
+  if (!portfolio || portfolio.dataset.behaviorInitialized === 'true') return;
+  portfolio.dataset.behaviorInitialized = 'true';
+
+  const filters = portfolio.querySelectorAll('.filter-btn');
+  const items = portfolio.querySelectorAll('.portfolio-item[data-project-card]');
+  let lastFocusedElement = null;
+
+  // Project category filters
+  filters.forEach((button) => {
+    button.addEventListener('click', () => {
+      const filter = button.getAttribute('data-filter') || 'all';
+
+      filters.forEach((candidate) => {
+        const active = candidate === button;
+        candidate.classList.toggle('active', active);
+        candidate.setAttribute('aria-pressed', String(active));
+      });
+
+      items.forEach((item) => {
+        const visible = filter === 'all' || item.classList.contains(filter);
+        item.style.display = visible ? '' : 'none';
+        item.setAttribute('aria-hidden', String(!visible));
+      });
+    });
+  });
+
+  // Open the exact modal linked to the clicked project.
+  function openModal(modal, trigger) {
+    if (!modal) return;
+
+    lastFocusedElement = trigger || document.activeElement;
+    modal.classList.add('show');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+
+    const closeButton = modal.querySelector('.close-btn');
+    if (closeButton) closeButton.focus();
+  }
+
+  function closeModal(modal) {
+    if (!modal) return;
+
+    modal.classList.remove('show');
+    modal.setAttribute('aria-hidden', 'true');
+
+    if (!portfolio.querySelector('.floating-card.show')) {
+      document.body.style.overflow = '';
+    }
+
+    if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+      lastFocusedElement.focus();
+    }
+  }
+
+  items.forEach((item) => {
+    const link = item.querySelector('a');
+    const modalId = item.getAttribute('data-project-card');
+    const modal = document.getElementById(modalId);
+
+    if (!link || !modal) return;
+
+    link.addEventListener('click', (event) => {
+      event.preventDefault();
+      openModal(modal, link);
+    });
+
+    const closeButton = modal.querySelector('.close-btn');
+    if (closeButton) {
+      closeButton.addEventListener('click', () => closeModal(modal));
+    }
+
+    // Close when the user clicks the modal backdrop.
+    modal.addEventListener('click', (event) => {
+      if (event.target === modal) closeModal(modal);
+    });
+  });
+
+  // Close the currently open modal with Escape.
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      const openModalElement = portfolio.querySelector('.floating-card.show');
+      if (openModalElement) closeModal(openModalElement);
+    }
+  });
+})();
+</script>
+
 
       <!-- =========================
            CTF WRITEUPS SECTION
