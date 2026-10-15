@@ -396,8 +396,8 @@ document.addEventListener("DOMContentLoaded", function () {
         lastFocusedElement = trigger || document.activeElement;
 
         card.classList.add("show");
-        document.body.style.overflow = "hidden";
-
+        document.body.style.overflow = "";
+      
         const closeButton = card.querySelector(".close-btn");
 
         if (closeButton) {
