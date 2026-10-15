@@ -315,38 +315,176 @@ function animateParticles() {
 }
 
 
-// Mapping of portfolio classes -> card IDs
+// ============================================================
+// PORTFOLIO FILTERING & FLOATING PROJECT CARDS
+// Replace the old Project Filtering Logic and projectMap blocks
+// ============================================================
+
+// Each project has its own unique class and modal ID.
+// Do not map using shared category classes such as "cyber".
 const projectMap = {
-"cyber": "project1-card",    // SafeGuard
-"vault": "project2-card",    // Secure Vault
-"linksnip": "project3-card", // LinkSnip
-"hospital": "project4-card"  // Smart Hospital Management System
+    "safeguard": "project1-card",
+    "skillforge": "skillforge-card",
+    "hospital": "project4-card",
+    "vault": "project2-card",
+    "linksnip": "linksnip-card",
+    "ssh-detection": "ssh-detection-card",
+    "ssrfhunter": "ssrfhunter-card",
+    "neurosoc": "neurosoc-card",
+    "portscan": "portscan-card"
 };
 
-// Attach click events dynamically
-Object.keys(projectMap).forEach(cls => {
-const item = document.querySelector(`.portfolio-item.${cls}`);
-const cardId = projectMap[cls];
-const card = document.getElementById(cardId);
+document.addEventListener("DOMContentLoaded", function () {
+    const portfolio = document.getElementById("portfolio");
 
-if (item && card) {
-    // Open on portfolio click
-    item.addEventListener("click", e => {
-    e.preventDefault();
-    card.classList.add("show");
+    if (!portfolio) return;
+
+    // --------------------------------------------------------
+    // PORTFOLIO FILTERING
+    // --------------------------------------------------------
+
+    const filterButtons = portfolio.querySelectorAll(".filter-btn");
+    const projectItems = portfolio.querySelectorAll(".portfolio-item");
+
+    filterButtons.forEach(function (button) {
+        button.addEventListener("click", function () {
+            applyPortfolioFilter(button);
+        });
+
+        // Keyboard support for filter buttons.
+        button.addEventListener("keydown", function (event) {
+            if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                applyPortfolioFilter(button);
+            }
+        });
     });
 
-    // Close on close-btn
-    card.querySelector(".close-btn").addEventListener("click", () => {
-    card.classList.remove("show");
+    function applyPortfolioFilter(button) {
+        const filter = button.getAttribute("data-filter") || "all";
+
+        filterButtons.forEach(function (filterButton) {
+            const isActive = filterButton === button;
+
+            filterButton.classList.toggle("active", isActive);
+            filterButton.setAttribute("aria-pressed", String(isActive));
+        });
+
+        projectItems.forEach(function (item) {
+            const showItem =
+                filter === "all" || item.classList.contains(filter);
+
+            item.style.display = showItem ? "" : "none";
+
+            if (showItem) {
+                item.classList.add("aos-animate");
+            } else {
+                item.classList.remove("aos-animate");
+            }
+        });
+    }
+
+    // --------------------------------------------------------
+    // OPEN AND CLOSE PROJECT MODALS
+    // --------------------------------------------------------
+
+    let lastFocusedElement = null;
+
+    function openProjectCard(card, trigger) {
+        if (!card) return;
+
+        lastFocusedElement = trigger || document.activeElement;
+
+        card.classList.add("show");
+        document.body.style.overflow = "hidden";
+
+        const closeButton = card.querySelector(".close-btn");
+
+        if (closeButton) {
+            closeButton.focus();
+        }
+    }
+
+    function closeProjectCard(card) {
+        if (!card) return;
+
+        card.classList.remove("show");
+
+        const anotherModalOpen = Object.values(projectMap).some(function (id) {
+            const modal = document.getElementById(id);
+            return modal && modal.classList.contains("show");
+        });
+
+        if (!anotherModalOpen) {
+            document.body.style.overflow = "";
+
+            if (lastFocusedElement) {
+                lastFocusedElement.focus();
+            }
+        }
+    }
+
+    // Attach the correct modal to each individual project.
+    Object.entries(projectMap).forEach(function ([projectClass, cardId]) {
+        const item = portfolio.querySelector(
+            ".portfolio-item." + projectClass
+        );
+
+        const card = document.getElementById(cardId);
+
+        if (!item || !card) {
+            console.warn(
+                "Portfolio mapping missing:",
+                projectClass,
+                "=>",
+                cardId
+            );
+            return;
+        }
+
+        const projectLink = item.querySelector("a");
+
+        // Open the corresponding floating card.
+        if (projectLink) {
+            projectLink.addEventListener("click", function (event) {
+                event.preventDefault();
+                openProjectCard(card, projectLink);
+            });
+        }
+
+        // Close button.
+        const closeButton = card.querySelector(".close-btn");
+
+        if (closeButton) {
+            closeButton.addEventListener("click", function (event) {
+                event.preventDefault();
+                event.stopPropagation();
+                closeProjectCard(card);
+            });
+        }
+
+        // Close when clicking the dark backdrop.
+        card.addEventListener("click", function (event) {
+            if (event.target === card) {
+                closeProjectCard(card);
+            }
+        });
     });
 
-    // Close on background click
-    card.addEventListener("click", e => {
-    if (e.target === card) card.classList.remove("show");
+    // Close open project cards with Escape.
+    document.addEventListener("keydown", function (event) {
+        if (event.key !== "Escape") return;
+
+        Object.values(projectMap).forEach(function (cardId) {
+            const card = document.getElementById(cardId);
+
+            if (card && card.classList.contains("show")) {
+                closeProjectCard(card);
+            }
+        });
     });
-}
 });
+
 
 // ============================================================
 // CTF WRITEUPS - FILTERING & FLOATING MODALS
