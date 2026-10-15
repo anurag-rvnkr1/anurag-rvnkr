@@ -384,45 +384,39 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // --------------------------------------------------------
-    // OPEN AND CLOSE PROJECT MODALS
-    // --------------------------------------------------------
 
-    let lastFocusedElement = null;
+function openProjectCard(card, trigger) {
+    if (!card) return;
 
-    function openProjectCard(card, trigger) {
-        if (!card) return;
+    lastFocusedElement = trigger || document.activeElement;
 
-        lastFocusedElement = trigger || document.activeElement;
+    card.classList.add("show");
 
-        card.classList.add("show");
-        document.body.style.overflow = "";
-      
-        const closeButton = card.querySelector(".close-btn");
+    // Keep normal page scrolling enabled.
+    document.body.style.overflow = "";
+    document.documentElement.style.overflow = "";
 
-        if (closeButton) {
-            closeButton.focus();
-        }
+    const closeButton = card.querySelector(".close-btn");
+
+    if (closeButton) {
+        closeButton.focus();
     }
+}
 
-    function closeProjectCard(card) {
-        if (!card) return;
+function closeProjectCard(card) {
+    if (!card) return;
 
-        card.classList.remove("show");
+    card.classList.remove("show");
 
-        const anotherModalOpen = Object.values(projectMap).some(function (id) {
-            const modal = document.getElementById(id);
-            return modal && modal.classList.contains("show");
-        });
+    // Always restore normal page scrolling.
+    document.body.style.overflow = "";
+    document.documentElement.style.overflow = "";
 
-        if (!anotherModalOpen) {
-            document.body.style.overflow = "";
-
-            if (lastFocusedElement) {
-                lastFocusedElement.focus();
-            }
-        }
+    if (lastFocusedElement) {
+        lastFocusedElement.focus();
     }
+}
+
 
     // Attach the correct modal to each individual project.
     Object.entries(projectMap).forEach(function ([projectClass, cardId]) {
