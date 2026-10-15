@@ -222,301 +222,312 @@
         </div>
       </section>
 
-      <!-- Portfolio Section -->
-      <section id="portfolio" class="section">
-        <div class="container">
-          <h2 class="section-title" data-aos="fade-up">Projects</h2>
+<!-- Portfolio Section -->
+<section id="portfolio" class="section">
+  <div class="container">
+    <h2 class="section-title" data-aos="fade-up">Projects</h2>
 
-          <!-- Filter Buttons -->
-          <ul class="portfolio-filters" data-aos="fade-up" data-aos-delay="100">
-            <li class="filter-btn active" data-filter="all">All</li>
-            <li class="filter-btn" data-filter="cyber">Cybersecurity</li>
-            <li class="filter-btn" data-filter="django">PYTHON-DJANGO</li>
+    <!-- Filter Buttons -->
+    <ul class="portfolio-filters" data-aos="fade-up" data-aos-delay="100">
+      <li class="filter-btn active" data-filter="all">All</li>
+      <li class="filter-btn" data-filter="cyber">Cybersecurity</li>
+      <li class="filter-btn" data-filter="django">PYTHON-DJANGO</li>
+      <li class="filter-btn" data-filter="soc">SOC & SIEM</li>
+    </ul>
+
+    <!-- Project Grid -->
+    <div class="portfolio-grid" data-aos="fade-up" data-aos-delay="200">
+
+      <!-- Project 1: SafeGuard -->
+      <div class="portfolio-item cyber">
+        <a href="assets/project_templates/project1.html">
+          <img src="assets/img/portfolio/safeguard.png" alt="SafeGuard Web Protector">
+          <div class="portfolio-info">
+            <h4>SafeGuard-Web-Protector</h4>
+            <p>Chrome extension using ML to classify URLs and block malicious content.</p>
+            <span>📲 Tap to View Project</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Floating Card: SafeGuard -->
+      <div id="project1-card" class="floating-card">
+        <div class="card-content">
+          <span class="close-btn">×</span>
+          <h2>SafeGuard-Web-Protector</h2>
+          <p>🚀 Chrome extension using ML to classify URLs and block malicious content in real time.</p>
+          <ul>
+            <li>🔍 ML-based malicious URL classification using Naive Bayes</li>
+            <li>🛡️ VirusTotal and Google Safe Browsing API integration</li>
+            <li>👨‍👩‍👧 Child Mode for safer browsing</li>
+            <li>⚡ Popup alerts and classification scores</li>
           </ul>
-
-          <!-- Project Grid -->
-          <div class="portfolio-grid" data-aos="fade-up" data-aos-delay="200">
-            <!-- Project 1 -->
-            <div class="portfolio-item cyber">
-              <a href="assets/project_templates/project1.html">
-                <img src="assets/img/portfolio/safeguard.png" alt="SafeGuard">
-                <div class="portfolio-info">
-                  <h4>SafeGuard-Web-Protector</h4>
-                  <p>Chrome Extension using ML to classify URLs and block malicious content.</p>
-                  <span>📲 Tap to View Project</span>
-                </div>
-              </a>
-            </div>
-
-            <!-- Floating Card Container -->
-            <div id="project1-card" class="floating-card">
-              <div class="card-content">
-                <span class="close-btn">&times;</span>
-                <h2>SafeGuard-Web-Protector</h2>
-                <p>🚀 Chrome Extension using ML to classify URLs and block malicious content in real time.</p>
-                <ul>
-                  <li>🔍 ML-based malicious URL classification (Naive Bayes)</li>
-                  <li>🛡️ Integrated VirusTotal + Google Safe Browsing APIs</li>
-                  <li>👨‍👩‍👧 Child Mode for safe browsing</li>
-                  <li>⚡ Popup alerts & classification score</li>
-                </ul>
-                <div class="btn-group">
-                  <a href="https://github.com/anuragrevankar/safeguard-web-protector" class="btn">GitHub Repo</a>
-                  <a href="https://github.com/anuragrevankar/safeguard-web-protector" class="btn">Live Demo</a>
-                </div>
-              </div>
-            </div>
-
-            <!-- Project 2 -->
-            <div class="portfolio-item skillforge django ai elearning">
-              <a href="assets/project_templates/project3.html">
-                <img src="assets/img/portfolio/SkillForge.jpg" alt="SkillForge">
-                <div class="portfolio-info">
-                  <h4>SkillForge</h4>
-                  <p>AI-powered Django e-learning platform backend with RESTful APIs & gamified learning.</p>
-                  <span>📲 Tap to View Project</span>
-                </div>
-              </a>
-            </div>
-
-            <!-- Floating Card: SkillForge -->
-            <div id="project3-card" class="floating-card">
-              <div class="card-content">
-                <span class="close-btn">&times;</span>
-                <h2>SkillForge – E-Learning Platform</h2>
-                <p>🎓 Scalable Django-based backend powering next-gen e-learning with AI-driven learning assistance.</p>
-                <ul>
-                  <li>⚙️ Designed RESTful APIs for video streaming, course management, and secure payment handling</li>
-                  <li>🎮 Implemented gamified features: progress tracking, badges, and leaderboards</li>
-                  <li>🔐 Role-based access control (Admin, Instructor, Student) for structured content delivery</li>
-                  <li>⚡ Optimized performance using async tasks, DB indexing, and modular architecture</li>
-                </ul>
-                <div class="btn-group">
-                  <a href="https://github.com/anurag-rvnkr1/SkillForge-Demo.git" class="btn">GitHub Repo</a>
-                  <a href="skill-forge-frontend-link.vercel.app" class="btn">Live Demo</a>
-                </div>
-              </div>
-            </div>
-
-            <!-- Project 4 -->
-            <div class="portfolio-item hospital django">
-              <a href="assets/project_templates/project4.html">
-                <img src="assets/img/portfolio/shms.png" alt="Smart Hospital Management System">
-                <div class="portfolio-info">
-                  <h4>Smart Hospital Management System</h4>
-                  <p>Django-based hospital system with role-based access & drug management.</p>
-                  <span>📲 Tap to View Project</span>
-                </div>
-              </a>
-            </div>
-
-            <!-- Floating Card: Smart Hospital Management System -->
-            <div id="project4-card" class="floating-card">
-              <div class="card-content">
-                <span class="close-btn">&times;</span>
-                <h2>Smart Hospital Management System</h2>
-                <p>🏥 Django-based hospital management system with multiple user roles and streamlined operations.</p>
-                <ul>
-                  <li>👨‍⚕️ Doctors – Manage patient prescriptions</li>
-                  <li>💊 Pharmacists – Stock, dispense & manage medicines</li>
-                  <li>📝 Admins – Manage admissions, users, and inventory</li>
-                  <li>💼 Receptionists – Handle patient admissions</li>
-                  <li>👩‍⚕️ Patients – View prescriptions & give feedback</li>
-                </ul>
-                <div class="btn-group">
-                  <a href="https://github.com/anuragrvnkr1/Smart-Hospital-Management-System-.git" class="btn">GitHub Repo</a>
-                </div>
-              </div>
-            </div>
-
-            <!-- Project 3 (Secure-Vault) -->
-            <div class="portfolio-item vault django cyber">
-              <a href="assets/project_templates/project2.html">
-                <img src="assets/img/portfolio/secure-vault.png" alt="Secure Vault">
-                <div class="portfolio-info">
-                  <h4>Secure-Vault</h4>
-                  <p>Django app for secure password generation & AI-based strength checking.</p>
-                  <span>📲 Tap to View Project</span>
-                </div>
-              </a>
-            </div>
-
-            <!-- Floating Card: Secure Vault -->
-            <div id="project2-card" class="floating-card">
-              <div class="card-content">
-                <span class="close-btn">&times;</span>
-                <h2>Secure-Vault</h2>
-                <p>🔐 Django web app for secure password generation & AI-powered strength checking.</p>
-                <ul>
-                  <li>⚡ Real-time AI-based password strength feedback</li>
-                  <li>🧮 Entropy scoring + regex-based validation</li>
-                  <li>📋 Clipboard-safe copy with auto-clear</li>
-                  <li>✨ Interactive strength meter with UI animations</li>
-                </ul>
-                <div class="btn-group">
-                  <a href="https://github.com/anuragrevankar/secure-vault" class="btn">GitHub Repo</a>
-                  <a href="https://github.com/anuragrevankar/secure-vault" class="btn">Live Demo</a>
-                </div>
-              </div>
-            </div>
-
-            <!-- Project 4 (LinkSnip) -->
-            <div class="portfolio-item linksnip django">
-              <a href="assets/project_templates/project3.html">
-                <img src="assets/img/portfolio/linksnip.png" alt="LinkSnip">
-                <div class="portfolio-info">
-                  <h4>LinkSnip</h4>
-                  <p>Django-based URL shortener with analytics & secure redirection.</p>
-                  <span>📲 Tap to View Project</span>
-                </div>
-              </a>
-            </div>
-
-            <!-- Floating Card: LinkSnip -->
-            <div id="project3-card" class="floating-card">
-              <div class="card-content">
-                <span class="close-btn">&times;</span>
-                <h2>LinkSnip - URL Shortener</h2>
-                <p>🔗 Django-powered URL shortener with analytics, expiration, and secure redirects.</p>
-                <ul>
-                  <li>⚡ Base62 short URL generation with collision handling</li>
-                  <li>📊 Analytics: click count, timestamps, referrers</li>
-                  <li>⏳ Expiration logic & redirection handling</li>
-                  <li>🛠️ Custom aliases & user link management</li>
-                </ul>
-                <div class="btn-group">
-                  <a href="https://github.com/anuragrevankar/linksnip" class="btn">GitHub Repo</a>
-                  <a href="https://github.com/anuragrevankar/linksnip" class="btn">Live Demo</a>
-                </div>
-              </div>
-            </div>
-           <!-- Project 5 (SSH Intrusion Detection System) -->
-           <div class="portfolio-item cyber siem linux python">
-             <a href="assets/project_templates/project5.html">
-               <img src="assets/img/portfolio/ssh-intrusion-detection.png" alt="SSH Intrusion Detection System">
-               <div class="portfolio-info">
-                 <h4>SSH-Intrusion-Detection-System</h4>
-                 <p>Python-based Linux authentication log monitoring system that detects SSH brute-force attacks and forwards alerts to Splunk and ELK.</p>
-                 <span>📲 Tap to View Project</span>
-               </div>
-             </a>
-           </div>
-
-           <!-- Floating Card: SSH Intrusion Detection System -->
-           <div id="project5-card" class="floating-card">
-             <div class="card-content">
-               <span class="close-btn">&times;</span>
-               <h2>SSH Intrusion Detection System</h2>
-               <p>🛡️ Python-based security monitoring solution for detecting SSH brute-force attacks through real-time Linux authentication log analysis.</p>
-               <ul>
-                 <li>🔍 Monitors Linux authentication logs for suspicious SSH login activity</li>
-                 <li>🚨 Detects repeated failed authentication attempts and potential brute-force attacks</li>
-                 <li>📊 Forwards security alerts to Splunk and the Elastic Stack (ELK)</li>
-                 <li>⚡ Supports security event monitoring and incident investigation workflows</li>
-                 <li>🐧 Demonstrates host-based intrusion detection and log analysis</li>
-               </ul>
-               <div class="btn-group">
-                 <a href="https://github.com/anurag-rvnkr1/SSH-Intrusion-Detection-System" class="btn" target="_blank" rel="noopener noreferrer">GitHub Repo</a>
-               </div>
-             </div>
-           </div>
-
-           <!-- Project 6 (SSRFHunter Pro) -->
-           <div class="portfolio-item cyber python appsec pentesting">
-             <a href="assets/project_templates/project6.html">
-               <img src="assets/img/portfolio/ssrfhunter-pro.png" alt="SSRFHunter Pro">
-               <div class="portfolio-info">
-                 <h4>SSRFHunter Pro</h4>
-                 <p>Python-based SSRF security assessment framework for authorized penetration testing, application security research, and vulnerability assessment.</p>
-                 <span>📲 Tap to View Project</span>
-               </div>
-             </a>
-           </div>
-
-           <!-- Floating Card: SSRFHunter Pro -->
-           <div id="project6-card" class="floating-card">
-             <div class="card-content">
-               <span class="close-btn">&times;</span>
-               <h2>SSRFHunter Pro – SSRF Security Assessment</h2>
-               <p>🎯 A Python-based framework designed to support authorized Server-Side Request Forgery (SSRF) security assessments and application security testing.</p>
-               <ul>
-                 <li>🔍 Supports SSRF-focused security assessment workflows</li>
-                 <li>🛡️ Built for authorized penetration testing and vulnerability assessment</li>
-                 <li>🌐 Focuses on web application security and OWASP-aligned testing practices</li>
-                 <li>🧪 Supports security research, controlled testing, and educational use cases</li>
-                 <li>⚙️ Provides a Python-based foundation for SSRF testing workflows</li>
-               </ul>
-               <div class="btn-group">
-                 <a href="https://github.com/anurag-rvnkr1/SSRFHunter-Pro" class="btn" target="_blank" rel="noopener noreferrer">GitHub Repo</a>
-               </div>
-             </div>
-           </div>
-
-           <!-- Project 7 (NeuroSOC) -->
-           <div class="portfolio-item cyber siem ai python soc">
-             <a href="assets/project_templates/project7.html">
-               <img src="assets/img/portfolio/neurosoc.png" alt="NeuroSOC AI-Assisted SOC and SIEM Platform">
-               <div class="portfolio-info">
-                 <h4>NeuroSOC</h4>
-                 <p>AI-assisted SOC and SIEM platform for security event collection, normalization, correlation, investigation, and visualization.</p>
-                 <span>📲 Tap to View Project</span>
-               </div>
-             </a>
-           </div>
-
-           <!-- Floating Card: NeuroSOC -->
-           <div id="project7-card" class="floating-card">
-             <div class="card-content">
-               <span class="close-btn">&times;</span>
-               <h2>NeuroSOC – AI-Assisted SOC & SIEM Platform</h2>
-               <p>🧠 A security operations platform designed to help security teams centralize events and investigate potential threats through AI-assisted workflows.</p>
-               <ul>
-                 <li>📥 Collects security events from monitoring sources</li>
-                 <li>🔄 Normalizes event data to support consistent analysis</li>
-                 <li>🔗 Correlates security events to help identify suspicious activity</li>
-                 <li>🔎 Supports security event investigation and analysis workflows</li>
-                 <li>📊 Provides security event visualization for SOC operations</li>
-                 <li>🤖 Uses an AI-assisted approach to security monitoring and investigation</li>
-               </ul>
-               <div class="btn-group">
-                 <a href="https://github.com/anurag-rvnkr1/NeuroSOC" class="btn" target="_blank" rel="noopener noreferrer">GitHub Repo</a>
-               </div>
-             </div>
-           </div>
-
-           <!-- Project 8 (Port Scan Detection Engineering Lab) -->
-           <div class="portfolio-item cyber siem network splunk elk">
-             <a href="assets/project_templates/project8.html">
-               <img src="assets/img/portfolio/port-scan-detection-lab.png" alt="Port Scan Detection Engineering Lab">
-               <div class="portfolio-info">
-                 <h4>Port-Scan-Detection-Engineering-Lab</h4>
-                 <p>Security engineering lab demonstrating Nmap port-scan simulation and real-time detection workflows using Splunk and the Elastic Stack.</p>
-                 <span>📲 Tap to View Project</span>
-               </div>
-             </a>
-           </div>
-
-           <!-- Floating Card: Port Scan Detection Engineering Lab -->
-           <div id="project8-card" class="floating-card">
-             <div class="card-content">
-               <span class="close-btn">&times;</span>
-               <h2>Port Scan Detection Engineering Lab</h2>
-               <p>🔬 A practical security detection lab focused on identifying reconnaissance activity through network scan simulation, log analysis, and SIEM monitoring.</p>
-               <ul>
-                 <li>🌐 Simulates port-scan reconnaissance using Nmap in a controlled lab</li>
-                 <li>🔍 Examines network and security telemetry for scanning activity</li>
-                 <li>📊 Demonstrates detection workflows in Splunk and Elastic Stack (ELK)</li>
-                 <li>🛡️ Connects reconnaissance behavior with defensive monitoring and alerting</li>
-                 <li>🧪 Supports hands-on SIEM detection engineering and security analysis practice</li>
-               </ul>
-               <div class="btn-group">
-                 <a href="https://github.com/anurag-rvnkr1/Port-Scan-Detection-Engineering-Lab" class="btn" target="_blank" rel="noopener noreferrer">GitHub Repo</a>
-               </div>
-             </div>
-           </div>        
+          <div class="btn-group">
+            <a href="https://github.com/anuragrevankar/safeguard-web-protector" class="btn" target="_blank" rel="noopener noreferrer">GitHub Repo</a>
+            <a href="https://github.com/anuragrevankar/safeguard-web-protector" class="btn" target="_blank" rel="noopener noreferrer">Live Demo</a>
           </div>
         </div>
-      </section>
+      </div>
+
+      <!-- Project 2: SkillForge -->
+      <div class="portfolio-item django ai elearning">
+        <a href="assets/project_templates/project3.html">
+          <img src="assets/img/portfolio/SkillForge.jpg" alt="SkillForge E-Learning Platform">
+          <div class="portfolio-info">
+            <h4>SkillForge</h4>
+            <p>AI-powered Django e-learning platform backend with RESTful APIs and gamified learning.</p>
+            <span>📲 Tap to View Project</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Floating Card: SkillForge -->
+      <div id="project3-card" class="floating-card">
+        <div class="card-content">
+          <span class="close-btn">×</span>
+          <h2>SkillForge – E-Learning Platform</h2>
+          <p>🎓 Django-based backend powering an e-learning platform with AI-driven learning assistance.</p>
+          <ul>
+            <li>⚙️ RESTful APIs for course management and learning workflows</li>
+            <li>🎮 Gamified learning with progress tracking, badges, and leaderboards</li>
+            <li>🔐 Role-based access for administrators, instructors, and students</li>
+            <li>⚡ Modular backend architecture and performance optimization</li>
+          </ul>
+          <div class="btn-group">
+            <a href="https://github.com/anurag-rvnkr1/SkillForge-Demo.git" class="btn" target="_blank" rel="noopener noreferrer">GitHub Repo</a>
+            <a href="https://skill-forge-frontend-link.vercel.app" class="btn" target="_blank" rel="noopener noreferrer">Live Demo</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 3: Smart Hospital Management System -->
+      <div class="portfolio-item hospital django">
+        <a href="assets/project_templates/project4.html">
+          <img src="assets/img/portfolio/shms.png" alt="Smart Hospital Management System">
+          <div class="portfolio-info">
+            <h4>Smart Hospital Management System</h4>
+            <p>Django-based hospital system with role-based access and medicine management.</p>
+            <span>📲 Tap to View Project</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Floating Card: Smart Hospital Management System -->
+      <div id="project4-card" class="floating-card">
+        <div class="card-content">
+          <span class="close-btn">×</span>
+          <h2>Smart Hospital Management System</h2>
+          <p>🏥 A Django-based hospital management application supporting multiple user roles.</p>
+          <ul>
+            <li>👨‍⚕️ Doctors can manage patient prescriptions</li>
+            <li>💊 Pharmacists can manage and dispense medicines</li>
+            <li>📝 Administrators can manage users, admissions, and inventory</li>
+            <li>💼 Receptionists can handle patient admissions</li>
+            <li>👩‍⚕️ Patients can view prescriptions and provide feedback</li>
+          </ul>
+          <div class="btn-group">
+            <a href="https://github.com/anuragrvnkr1/Smart-Hospital-Management-System-.git" class="btn" target="_blank" rel="noopener noreferrer">GitHub Repo</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 4: Secure Vault -->
+      <div class="portfolio-item vault django cyber">
+        <a href="assets/project_templates/project2.html">
+          <img src="assets/img/portfolio/secure-vault.png" alt="Secure Vault">
+          <div class="portfolio-info">
+            <h4>Secure-Vault</h4>
+            <p>Django application for secure password generation and AI-based strength checking.</p>
+            <span>📲 Tap to View Project</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Floating Card: Secure Vault -->
+      <div id="project2-card" class="floating-card">
+        <div class="card-content">
+          <span class="close-btn">×</span>
+          <h2>Secure-Vault</h2>
+          <p>🔐 Django web application for password generation and password-strength analysis.</p>
+          <ul>
+            <li>⚡ Password-strength feedback</li>
+            <li>🧮 Entropy scoring and regex-based validation</li>
+            <li>📋 Clipboard-safe copy functionality</li>
+            <li>✨ Interactive password-strength meter</li>
+          </ul>
+          <div class="btn-group">
+            <a href="https://github.com/anuragrevankar/secure-vault" class="btn" target="_blank" rel="noopener noreferrer">GitHub Repo</a>
+            <a href="https://github.com/anuragrevankar/secure-vault" class="btn" target="_blank" rel="noopener noreferrer">Project Link</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 5: LinkSnip -->
+      <div class="portfolio-item linksnip django">
+        <a href="assets/project_templates/project5.html">
+          <img src="assets/img/portfolio/linksnip.png" alt="LinkSnip URL Shortener">
+          <div class="portfolio-info">
+            <h4>LinkSnip</h4>
+            <p>Django-based URL shortener with analytics and secure redirection.</p>
+            <span>📲 Tap to View Project</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Floating Card: LinkSnip -->
+      <div id="project5-card" class="floating-card">
+        <div class="card-content">
+          <span class="close-btn">×</span>
+          <h2>LinkSnip – URL Shortener</h2>
+          <p>🔗 Django-powered URL shortener with analytics, expiration, and redirection management.</p>
+          <ul>
+            <li>⚡ Base62 short URL generation</li>
+            <li>📊 Click analytics and timestamps</li>
+            <li>⏳ URL expiration and redirection handling</li>
+            <li>🛠️ Custom aliases and link management</li>
+          </ul>
+          <div class="btn-group">
+            <a href="https://github.com/anuragrevankar/linksnip" class="btn" target="_blank" rel="noopener noreferrer">GitHub Repo</a>
+            <a href="https://github.com/anuragrevankar/linksnip" class="btn" target="_blank" rel="noopener noreferrer">Project Link</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 6: SSH Intrusion Detection System -->
+      <div class="portfolio-item cyber soc">
+        <a href="assets/project_templates/project6.html">
+          <img src="assets/img/portfolio/ssh-intrusion-detection.png" alt="SSH Intrusion Detection System">
+          <div class="portfolio-info">
+            <h4>SSH Intrusion Detection System</h4>
+            <p>Python-based real-time SSH brute-force detection with Splunk and ELK SIEM integration.</p>
+            <span>📲 Tap to View Project</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Floating Card: SSH Intrusion Detection System -->
+      <div id="project6-card" class="floating-card">
+        <div class="card-content">
+          <span class="close-btn">×</span>
+          <h2>SSH Intrusion Detection System</h2>
+          <p>🛡️ A Python-based intrusion detection system that monitors Linux authentication logs, detects SSH brute-force activity, and forwards structured alerts to SIEM platforms.</p>
+          <ul>
+            <li>🐧 Real-time monitoring of Linux authentication logs</li>
+            <li>🔍 Detection of failed SSH authentication attempts and suspicious login activity</li>
+            <li>🚨 Configurable detection thresholds and time windows</li>
+            <li>📊 Splunk HTTP Event Collector and ELK Logstash integration</li>
+            <li>🔄 Alert delivery retry handling and structured JSON events</li>
+          </ul>
+          <div class="btn-group">
+            <a href="https://github.com/anurag-rvnkr1/SSH-Intrusion-Detection-System" class="btn" target="_blank" rel="noopener noreferrer">GitHub Repo</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 7: SSRFHunter Pro -->
+      <div class="portfolio-item cyber">
+        <a href="assets/project_templates/project7.html">
+          <img src="assets/img/portfolio/ssrfhunter-pro.png" alt="SSRFHunter Pro Security Assessment Framework">
+          <div class="portfolio-info">
+            <h4>SSRFHunter Pro</h4>
+            <p>Asynchronous Python framework for authorized SSRF security assessment and reporting.</p>
+            <span>📲 Tap to View Project</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Floating Card: SSRFHunter Pro -->
+      <div id="project7-card" class="floating-card">
+        <div class="card-content">
+          <span class="close-btn">×</span>
+          <h2>SSRFHunter Pro</h2>
+          <p>🎯 A modular Python framework for authorized SSRF security assessments, application security reviews, and cybersecurity research.</p>
+          <ul>
+            <li>⚡ Asynchronous scanning architecture</li>
+            <li>🕸️ Website and API crawling</li>
+            <li>🔍 URL parameter and HTML form discovery</li>
+            <li>📄 OpenAPI and Swagger support</li>
+            <li>🧠 Automated response analysis and risk classification</li>
+            <li>📊 HTML, JSON, and Markdown report generation</li>
+            <li>🗄️ SQLite scan history and Docker support</li>
+          </ul>
+          <div class="btn-group">
+            <a href="https://github.com/anurag-rvnkr1/SSRFHunter-Pro" class="btn" target="_blank" rel="noopener noreferrer">GitHub Repo</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 8: NeuroSOC -->
+      <div class="portfolio-item cyber soc">
+        <a href="assets/project_templates/project8.html">
+          <img src="assets/img/portfolio/neurosoc.png" alt="NeuroSOC AI-Assisted SOC and SIEM Platform">
+          <div class="portfolio-info">
+            <h4>NeuroSOC – AI-Assisted SIEM</h4>
+            <p>AI-assisted SOC platform for security log analysis, event correlation, investigation, and visualization.</p>
+            <span>📲 Tap to View Project</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Floating Card: NeuroSOC -->
+      <div id="project8-card" class="floating-card">
+        <div class="card-content">
+          <span class="close-btn">×</span>
+          <h2>NeuroSOC – AI-Assisted SOC & SIEM</h2>
+          <p>🧠 A security operations platform that helps analysts collect, normalize, correlate, investigate, and visualize security events.</p>
+          <ul>
+            <li>🛡️ Multi-source security log ingestion</li>
+            <li>📊 SIEM dashboard with search and filtering</li>
+            <li>🚨 Detection rules and alert correlation</li>
+            <li>🤖 AI-assisted incident investigation</li>
+            <li>🎯 MITRE ATT&CK mapping</li>
+            <li>📁 Security case management and analytics</li>
+            <li>🔐 JWT authentication and role-based access control</li>
+            <li>⚙️ FastAPI backend, React frontend, and SQLite database</li>
+          </ul>
+          <div class="btn-group">
+            <a href="https://github.com/anurag-rvnkr1/NeuroSOC-AI-Agentic-SIEM" class="btn" target="_blank" rel="noopener noreferrer">GitHub Repo</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 9: Port Scan Detection Engineering Lab -->
+      <div class="portfolio-item cyber soc">
+        <a href="assets/project_templates/project9.html">
+          <img src="assets/img/portfolio/port-scan-detection-lab.png" alt="Port Scan Detection Engineering Lab">
+          <div class="portfolio-info">
+            <h4>Port Scan Detection Engineering Lab</h4>
+            <p>Nmap reconnaissance simulations with detection rules and dashboards for Splunk and Elastic Stack.</p>
+            <span>📲 Tap to View Project</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Floating Card: Port Scan Detection Engineering Lab -->
+      <div id="project9-card" class="floating-card">
+        <div class="card-content">
+          <span class="close-btn">×</span>
+          <h2>Port Scan Detection Engineering Lab</h2>
+          <p>🔎 A defensive security lab for simulating port-scan activity and validating reconnaissance detections in SIEM platforms.</p>
+          <ul>
+            <li>🧪 Nmap-based port-scan and reconnaissance simulations</li>
+            <li>📡 Sample network and security log generation</li>
+            <li>🔍 Splunk SPL detection queries</li>
+            <li>📊 Elasticsearch DSL and ELK detection queries</li>
+            <li>📈 SIEM dashboards and investigation workflows</li>
+            <li>✅ Test cases and detection validation procedures</li>
+          </ul>
+          <div class="btn-group">
+            <a href="https://github.com/anurag-rvnkr1/Port-Scan-Detection-Engineering-Lab" class="btn" target="_blank" rel="noopener noreferrer">GitHub Repo</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- End Project Grid -->
+  </div>
+</section>
+<!-- End Portfolio Section -->
 
       <!-- =========================
            CTF WRITEUPS SECTION
